@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>正则表达式</title>
+</head>
+<body>
+    <script>
+        //创建正则表达式对象
+        //方式有两种:
+        /*
+        * 1.构造函数
+        * 2.字面量
+        *
+        *正则表达式子的作用:匹配字符串
+        *
+        * */
+        //构造函数创建正则表达式对象
+        var reg = new RegExp(/[0-5]{5}/);  //
+        var str="hello33333";
+        var ss=reg.test(str);
+        console.log(ss);
+
+
+
+        //字面量创建正则表达式
+        var reg=/\d{5}/;
+        var result =reg.test("这是我的幸运数字:11115");
+        console.log(result);
+
+
+
+    </script>
+</body>
+</html>

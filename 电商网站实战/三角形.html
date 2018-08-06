@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>三角形</title>
+	<style>
+		.triangle_down, .triangle_up, .triangle_left, .triangle_right{height:0;width:0;}
+		.triangle_up{
+			border-left:20px solid transparent;
+			border-right:20px solid transparent;
+			border-bottom:20px solid red;}
+		.triangle_left{
+			border-top:20px solid transparent;
+			border-bottom:20px solid transparent;
+			border-right:20px solid orange;
+		}
+		.triangle_right{
+			border-top:20px solid transparent;
+			border-bottom:20px solid transparent;
+			border-left:20px solid yellow;
+		}
+		.triangle_down{
+			border-left:20px solid transparent;
+			border-right:20px solid transparent;
+			border-top:20px solid green;
+		}
+	</style>
+</head>
+<body>
+	<div class="triangle_down"></div>
+	<div class="triangle_up"></div>
+	<div class="triangle_left"></div>
+	<div class="triangle_right"></div>
+</body>
+</html>

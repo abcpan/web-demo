@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>作用域链</title>
+</head>
+<body>
+	<script>
+		//作用域:变量的使用范围
+		//全局变量;局部变量
+		//js中没有块级作用域
+		while(true){
+			var num =10;
+			
+			break;
+		}
+
+		console.log(num);
+		{
+			var ll=1000;
+
+		}
+		console.log(ll);
+
+		if(true){
+			var ls=1000;
+		}
+
+		console.log(ls);
+	</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>box-sizing</title>
+	<style>
+		#father{
+			box-sizing: border-box;
+			width: 500px;
+			height:100px;
+			background:pink;
+			text-align:center;
+			padding: 0 10px;
+		}
+		#son1{
+			height:20px;
+			background:yellow;
+			margin:0 auto;
+			line-height: 100px;  /*针对文字而言*/
+		}
+		#son2{
+			height:20px;
+			background: black;
+			margin:0 auto; /*在父元素中居中*/
+		}
+
+		/*
+		box-sizing: border-box 这个属性对 将元素的内边距和边框 计算到元素的宽度和高度,当增加内边距或者边框时将挤压 content
+		*/
+	</style>
+</head>
+<body>
+	<div id="father">
+			<div id="son1">jjjjj</div>
+	</div>
+</body>
+</html>

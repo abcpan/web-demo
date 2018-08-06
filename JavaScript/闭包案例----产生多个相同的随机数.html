@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>闭包的随机数案例</title>
+</head>
+<body>
+	<script>
+		//产生三个随机的整数
+		// function genarateRandom(){
+		// 	var num =parseInt(Math.random()*10);    //pareseIn转换为整数字   random 为随机产生0到1的数字
+		// 	console.log(num);
+
+
+		// }
+
+		// genarateRandom();
+        //产生三个相同的随机数字
+       function f1(){
+       	var num =parseInt(Math.random()*10);
+       	return function (){
+       		console.log(num);
+       	}
+       }
+
+       var ff=f1();
+       ff();
+       ff();
+       ff();
+       ff();
+       ff();
+       ff();
+       ff();
+       ff();
+
+       //总结:闭包作用:缓存数据     缓存的数据放在内层函数和外层函数之间
+	</script>
+</body>
+</html>

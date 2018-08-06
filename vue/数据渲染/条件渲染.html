@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>条件渲染</title>
+	<script src="vue/vue.js"></script>
+</head>
+<body>
+<!--v-命令后的引号内容是js中的表达式,非字符串 -->
+<!-- 条件渲染,v-if后面的值为真 才会进行渲染 -->
+
+	<div id="root">
+	<!-- v-if每次操作是将dom进行删除和添加 ,性能较低 -->
+		<div v-if="isshow">
+			{{message}}
+		</div>
+		<!-- v-if 和v-else必须紧贴在一起使用 -->
+		<div v-else>{{message2}}</div>
+		<button @click="handleShow">显示或者消失</button>
+
+
+	<!-- v-show 同样是根据后面的表达式的布尔值决定是否显示,但是是将样式设置为display,由于不重新添加元素所以性能较好 -->
+		<div v-show="isshow"
+			@click="handleShow">
+			{{message}}
+		</div>
+	</div>
+	<script>
+		var vm = new Vue({
+			el: "#root",
+			data: {
+				isshow: true,
+				message: "hello, world",
+				message2: "Bye, World"
+			},
+			methods: {
+				handleShow: function() {
+					this.isshow=!this.isshow;
+				}
+			}
+		})
+	</script>
+</body>
+</html>

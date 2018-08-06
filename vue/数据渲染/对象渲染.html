@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>对象渲染</title>
+	<script src="vue/vue.js"></script>
+</head>
+<body>
+	<div id="root">
+	<!-- 对象渲染采用of  数组渲染采用in -->
+		<div v-for="(item, key, index) of userInfo">
+			{{key}}---->{{item}}--->{{index}}
+		</div>
+	</div>
+	<script>
+		var vm = new Vue({
+			el: "#root",
+			data: {
+				userInfo: {
+					name: "Dell",
+					age: 18,
+					gender: "male",
+					salary: "secret"
+				}
+			}
+		})
+	</script>
+</body>
+</html>

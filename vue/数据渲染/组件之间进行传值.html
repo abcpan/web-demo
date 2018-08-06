@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>组件之间进行传值</title>
+	<script src="vue/vue.js"></script>
+</head>
+<body>
+	<div id="root">
+		<div>
+			<input type="text"  v-model="todovalue">
+			<button @click="handleItem">提交</button>
+		</div>
+		<ul>
+		<!-- @delete父组件进行监听delete事件和子组件传递的值 -->
+			<todoitem 	v-for="(item, index) in list" 
+						v-bind:content="item"
+
+						v-bind:index="index"
+						@delete="handleDeleteItem">  
+							
+			</todoitem>
+		</ul>
+	</div>
+	<script>
+		//创建全局子组件
+		Vue.component('todoitem',{
+			props:['content', 'index'],
+			template: "<div style='height:20px;width:200px;background:red;cursor:pointer' @click='handleDeleteClick'>{{content}}</div>",
+			methods: {
+				handleDeleteClick: function(){
+					this.$emit('delete', this.index);  //  
+				}
+			}
+		})
+
+		var vm = new Vue({
+			el:'#root',
+			data: {
+				list:[],
+				todovalue: ''
+			},
+			methods: {
+				handleItem: function(){
+					if(this.todovalue==""){
+						alert("您输入的是空值");
+					}else{
+						this.list.push(this.todovalue);
+						this.todovalue="";
+					}
+				},
+				handleDeleteItem: function(index){
+					this.list.splice(index,1)
+				}
+			}
+		})   //调用vue实例对象中的属性或者方法:vm.$data.message
+	</script>
+</body>
+</html>

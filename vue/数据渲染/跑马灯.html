@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>paomadeng</title>
+	<style>
+		#text{
+			color:yellow;
+			font-size:30px;
+			text-align:center;
+		}
+	</style>
+</head>
+<body>
+	<div id="text">
+		欢迎领导来我校莅临视察
+	</div>
+	<script>
+		function func(){
+			var tag = document.getElementById("text");
+			var content = tag.innerText;
+			var first = content.charAt(0);
+			var part_content=content.substring(1,content.length);
+			var new_content =part_content+first;
+			tag.innerText=new_content;
+		}
+		
+		setInterval(func,100);
+
+	</script>
+</body>
+</html>

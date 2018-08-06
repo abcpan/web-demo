@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>点赞</title>
+	<style>
+		ul{
+			list-style-type:none;
+		}
+		li{
+			float:left;
+			margin-left:50px;
+		}
+
+		img{
+			width:70px;
+			height:70px;
+		}
+		input{
+			margin-left:30%;
+		}
+	</style>
+</head>
+<body>
+	<ul >
+		<li><img src="images/1.jpg" alt=""><input type="button" value="点赞(0)"></li>
+		<li><img src="images/2.jpg" alt=""><input type="button" value="点赞(0)"></li>
+		<li><img src="images/3.jpg" alt=""><input type="button" value="点赞(0)"></li>
+		<li><img src="images/4.jpg" alt=""><input type="button" value="点赞(0)"></li>
+	</ul>
+
+
+	<script>
+		//获取所有标签
+		var  tags=document.getElementsByTagName("input");
+		function setNum(){
+			var value=0;
+			return function(){
+				value++;
+				this.value="赞(" +value+")";
+			}
+		}
+
+
+		
+		for(i=0;i<tags.length;i++){
+			var num=setNum();
+			tags[i].onclick=num;
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>父组件向子组件传值</title>
+	<script src="vue/vue.js">
+		
+	</script>
+</head>
+<body>
+	<div id="root">
+		<counter :count="0"></counter>
+		<counter :count="1"></counter>
+		<counter :count="2"></counter>
+	</div>
+	<script>
+	//子组件
+		var counter = {
+			props: ["count"], //父组件向子组件传值 ,切记子组件不能修改父组件的传过来值
+			data: function(){
+				return {
+					number: this.count   //拷贝方法可以避免修改父组件中的传值//对象中的分隔符为逗号,不能写成函数中的分号
+				}
+			},
+			template: "<div @click='handleNumber'>{{count}}------>{{number}}</div>",
+			methods: {
+				handleNumber:function() {
+					this.number++;
+				}
+			}
+		}
+		var vm = new Vue({
+			el: "#root",
+			data: {
+
+			},
+			//注册子组件
+			components:{
+				counter: counter
+			}
+		})
+	</script>
+</body>
+</html>

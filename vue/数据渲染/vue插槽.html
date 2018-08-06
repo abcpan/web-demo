@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue插槽</title>
+	<script src="vue/vue.js"></script>
+</head>
+<body>
+	<div id="root">
+		<child>
+		<!-- 插槽就是在组件中插入元素 -->
+			<div slot="first">hello, Asia</div>
+			<div slot="second">hello, China</div>
+		</child>
+	</div>
+	<script>
+		var child = {
+			template: `<div>
+							<slot name='first'></slot>
+							<p>hello, world</p>
+							<slot name='second'></slot>
+						</div>`
+		}
+		var vm = new Vue({
+			el:"#root",
+			data: {
+
+			},
+			components:{
+				child: child
+			}
+		})
+	</script>
+</body>
+</html>

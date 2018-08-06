@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>计数器</title>
+	<script src="vue/vue.js"></script>
+	<style>
+		.style{
+			width:100px;
+			height:100px;
+			background:red;
+			color:green;
+			margin-bottom:2px;
+			border-radius:5px ;
+		}
+		.triangle{
+			width:0;
+			height:0;
+			border-bottom:10px solid green;
+			border-right:10px solid transparent;
+			border-left:10px solid transparent;
+		}
+	</style>
+</head>
+<body>
+	<div id="root">
+		<counter ref="one" @change="handleChange"></counter>
+		<counter  ref="two" @change="handleChange"></counter>
+		<div>{{total}}</div>
+		<div class="triangle"></div>
+	</div>
+	<script>
+		Vue.component("counter", {
+			data: function() {
+				return {
+					number: 0
+				}
+			},
+			template: "<div class='style' @click='handleClick'>{{number}}</div>",
+			methods: {
+				handleClick:function() {
+					this.number++;
+					this.$emit("change");
+				}
+			}
+		})
+
+		var vm = new Vue({
+			el: "#root",
+			data: {
+				total: 0
+			},
+			methods: {
+				handleChange: function() {
+					this.total=this.$refs.one.number + this.$refs.two.number;
+				}
+			}
+		})
+	</script>
+</body>
+</html>

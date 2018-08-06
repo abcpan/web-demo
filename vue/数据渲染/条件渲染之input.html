@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>条件渲染</title>
+	<script src="vue/vue.js"></script>
+</head>
+<body>
+	<div id="root">
+		<div v-if="show">
+			用户名: <input type="text" key="user">
+		</div>
+		<!-- vue中会尽量复用相同的DOM元素 解决办法 像元素中添加key值 -->
+		<div v-else>
+			密码: <input type="password" key="pwd">
+		</div>
+		<button @click="handleTab">切换</button>
+	</div>
+	<script>
+		var vm = new Vue({
+			el: "#root",
+			data: {
+				show: true
+			},
+			methods: {
+					handleTab: function() {
+					this.show=!this.show;
+				}
+			}
+		})
+	</script>
+</body>
+</html>

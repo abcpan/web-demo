@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>使用css库</title>
+	<script src="vue/vue.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/animate.css" >
+</head>
+<body>
+	<div id="root">
+		<!-- 当一个标签被transition包裹时vue最自动帮我们构建一个动画流程 -->
+		<transition enter-active-class="animated swing"
+					leave-active-class="animated shake">
+			<div v-show="show" >hello, world! </div>	
+		</transition>
+		<button @click="handlClick">显示/消失</button>
+	</div>
+	<script>
+		var vm = new Vue({
+			el: "#root",
+			data:{
+				show: true
+			},
+			methods: {
+				handlClick: function() {
+					// this.type = (this.type==true? false: true);
+					this.show =! this.show
+				}
+			}
+		})
+	</script>
+</body>
+</html>

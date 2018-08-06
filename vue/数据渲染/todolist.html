@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="vue/vue.js"></script>
+</head>
+<body>
+	<div id="root">
+		<input type="text" v-model="inputVlue">
+		<button @click="handleAdd">提交</button>
+		<ul>
+			<todolist v-for="(item, index) in list"
+					:content ="item"
+					:index="index"
+					@delete="handleDelete"></todolist>
+		</ul>
+	</div>
+	<script>
+		var todolist = {
+			props: ['content','index'],
+			template: "<li @click='handleDeleteClick'>{{content}}</li>",
+			methods: {
+				handleDeleteClick: function() {
+					this.$emit("delete",this.index)
+				}
+			}
+		}
+		var vm = new Vue({
+			el: "#root",
+			data: {
+				list: [],
+				inputVlue: ""
+			},
+			methods: {
+				handleAdd: function() {
+					this.list.push(this.inputVlue);
+				},
+				handleDelete: function(index) {
+					this.list.splice(index,1);
+				}
+			},
+			components: {
+				todolist: todolist
+			}
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>计算属性-方法-侦听器</title>
+	<script src="vue/vue.js">
+		
+	</script>
+</head>
+<body>
+	<div id="root">
+	<!-- 使用方法时,fullName必须加括号进行调用 -->
+		{{fullName}}   
+		{{age}}
+	</div>
+	<script>
+		var vm = new Vue({
+			el: '#root',
+			data: {
+				firstName: "Lawrence",
+				lastName: "Pan",
+				fullName: "Lawrence Pan",   //使用计算属性和方法时 不写此项 此项为侦听器项
+				age: 28
+
+			},
+			//计算属性   优点:拥有内置缓存 
+		// 	computed: {
+		// 		fullName: function() {   //fullName在此处为属性,所以必须有返回值
+		// 			console.log("计算了一次");
+		//			//在vue实例化对象初始化中  调用实例属性必须在前面this
+		// 			return this.firstName + " " + this.lastName;    
+		// 		}
+		// 	},
+
+		//  方法 缺点:只要页面进行了改变  该方法就会被重新执行一次
+		// methods: {
+		// 		fullName: function() {   //这里的fullName 是一个方法,在
+		// 			return this.firstName + " " + this.lastName;
+		// 		}
+		// 	},
+		//侦听器  //同计算属性一样 具有缓存机制
+			watch: {
+				firstName: function() {        //监听firstName属性,一旦发生改变 就对fullName重新赋值
+					console.log("计算了一次");
+					this.fullName = this.firstName + " " + this.lastName;
+				},
+				lastName:function() {
+					console.log("计算了一次");
+					this.fullName = this.firstName + " " +this.lastName;
+				}
+			}
+
+		})
+			
+	</script>
+</body>
+</html>

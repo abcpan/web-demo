@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>qian koabei</title>
+</head>
+<body>
+	<script>
+		//浅拷贝: 把一个对象中的所有内容复制到另外一个对象, 另外一个对象要创建一个新的内存空间
+		
+
+		//创建一个对象
+		var obj1={
+			name:"pan",
+			age:13,
+			sex:"男"
+		};
+
+		var obj2={};
+		function extend(a,b){
+			for(var key in a){
+				b[key]=a[key];
+			}
+		}
+
+		extend(obj1,obj2);
+
+		console.log(obj2);
+		console.log(obj1);
+	</script>
+</body>
+</html>

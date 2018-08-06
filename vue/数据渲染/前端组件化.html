@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>前端组件化</title>
+	<script src="vue/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<input type="text" v-model="inputValue">
+		<button v-on:click="handleBtn">提交</button>
+		<ul>
+			<!-- <li v-for="item in list">{{item}}</li> -->
+			<!-- <todo-item v-for="item in list"></todo-item> -->
+			<todo-item v-for="item in list" v-bind:content="item"></todo-item>
+		</ul>
+	</div>
+	<script>
+	//全局组件
+	 	// Vue.component("TodoItem",{
+	 	// 	props:["content"],
+	 	// 	template:"<li>{{content}}</li>"
+	 	// })
+
+	 	//局部组件
+	 	var TodoItem={
+	 		props:["content"],
+	 		template:"<li>{{content}}</li>"
+	 	}
+
+
+
+		var app = new Vue({
+			el:'#app',
+
+			components:{
+				TodoItem:TodoItem
+			},  //在vue实例对象中进行注册
+			data:{
+				list:[],
+				inputValue:""
+			},
+			methods:{
+				handleBtn:function(){
+					if(this.inputValue==""){
+						alert("不能输入空字符")
+					}else{
+						this.list.push(this.inputValue)
+					this.inputValue=""
+					}
+					
+				}
+			}
+		})
+	</script>
+</body>
+</html>

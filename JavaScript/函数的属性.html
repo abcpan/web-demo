@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数的几个属性</title>
+</head>
+<body>
+	<script>
+		function f1(x,y){
+			console.log(f1.name);     //name属性为函数的名称属性,只读 不可修改
+			console.log(f1.arguments.length);  //arguments.length为函数的实参个数
+			console.log(f1.length);   //length为函数的形式参数的个数		
+			console.log(f1.caller);   //caller为函数的调用者属性
+		}
+		f1(20,10,30);
+
+
+		(function(){
+			console.log("zheshidierge shanhu ");
+			f1(29,30);
+		}())
+	</script>
+</body>
+</html>

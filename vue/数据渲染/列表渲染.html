@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>列表渲染</title>
+	<script src="vue/vue.js"></script>
+</head>
+<body>
+	<div id="root">
+		<div>
+			<ul>
+				<li v-for="item in list">{{item}}</li>
+			</ul>
+		</div>
+	</div>
+	<script>
+		var vm = new Vue({
+			el: "#root",
+			data: {
+				list:[
+					"hello",
+					"it",
+					"is",
+					"me",
+					"are",
+					"you",
+					"remember",
+					"me"
+				]
+			}
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>样式绑定</title>
+	<script src="vue/vue.js"></script>
+	<style>
+		.activated{
+			width:500px;
+			height:50px;
+			background:pink;
+			font-family:"微软雅黑";
+			color:green;
+			font-size:20px;
+			border-radius:5px 5px 0 0;
+
+		}
+		.activated:hover{
+			font-weight:bold;
+		}
+	</style>
+</head>
+<body>
+	<div id="root">
+	<!-- 方法一 -->
+	<!-- activated 为class名称  是否显示取决与isActivated这个变量 -->
+		<!-- <div 
+		@click="handleStyle"
+		:class="{activated:isActived}">    
+		hello,world
+		</div> -->
+		<!-- 方法二 -->
+ 		<!--  activated 为class的名称 -->
+		<!-- <div 
+		:class="[activated]"  
+		@click="handleStyle">
+			hello, world
+		</div> -->
+
+		<!-- 方法三 -->
+	
+		<div :style="styleObj" @click="handleStyleChange">
+			hello,world
+		</div>
+	</div>
+	<script>
+
+	//样式绑定一
+		// var vm = new Vue({
+		// 	el: "#root",
+		// 	data: {
+		// 		isActived: false
+		// 	},
+
+		// 	methods: {
+		// 		handleStyle: function() {
+		// 			this.isActived=!this.isActived;
+		// 		}
+		// 	}
+		// })
+
+
+		//样式绑定二
+		// var vm = new Vue({
+		// 	el: "#root",
+		// 	data: {
+		// 		activated: ""
+		// 	},
+		// 	methods: {
+		// 		handleStyle: function() {
+		// 			this.activated = (this.activated == "activated" ? "": "activated");   //没有加引号的字符串  就是变量  此处为将activated赋值为activated (运用三元表达式)
+		// 		}
+		// 	}
+		// })
+		var vm = new Vue({
+			el: "#root",
+			data: {
+				styleObj:{
+					color: "red"
+				}
+			},
+
+			methods: {
+				handleStyleChange: function(){
+					this.styleObj.color=this.styleObj.color=="red"? "green": "red";  //vue中调用一级属性加$,二级不用加
+				}
+			}
+		})
+	</script>
+</body>
+</html>

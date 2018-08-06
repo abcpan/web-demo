@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>列表过渡</title>
+	<script src="vue/vue.js"></script>
+	<link rel="stylesheet" href="css/animate.css">
+	<style>
+		.v-enter, .v-leave-to {
+			opacity:0
+		}
+		.v-enter-active, .v-leave-active {
+			transition: opacity 1s;
+		}
+
+		/*样式表之间不要加逗号,不然不生效*/
+	</style>
+</head>
+<body>
+	<div id="root">
+		<!-- transiton-group可以看做是给列表的每一个元素都包裹了一个transition -->
+		<transition-group 
+				@after-enter="handleEnter"
+				enter-active-class="animated shake">
+			<div v-for="item in list" :key="item.id">{{item.title}}</div>
+		</transition-group>
+		<button @click="handleClick">add</button>
+	</div>
+	<script>
+		var count = 0;
+		var vm = new Vue({
+			el: "#root",
+			data: {
+				list: [] 
+			},
+			methods: {
+				handleClick: function() {
+					this.list.push({
+								id: count ++,
+								title: "我不转弯,我不转弯,我不转弯"
+							});
+				},
+				handleEnter: function(el) {
+					el.style.background="blue";
+				}
+			}
+		})
+	</script>
+</body>
+</html>

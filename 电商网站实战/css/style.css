@@ -1,0 +1,513 @@
+/*样式重置*/
+/* reset */
+body,h1,h2,h3,h4,h5,p,dl,dd,ul,ol,form,input,textarea,th,td,select { margin:0; padding:0; }
+em { font-style:normal; }
+li { list-style:none; }
+a { text-decoration:none; }
+img { border:none; vertical-align:top; }
+table { border-collapse:collapse; }
+input,textarea { outline:none; }
+textarea { resize:none; overflow:auto; }
+body { font-size:20px; font-family:"微软雅黑"; }
+
+
+
+/****************************************public style***************************************************/
+
+.clear{
+	zoom:1;
+}
+
+.clear:after{
+	content:"";
+	display:block;
+	clear:both;
+}
+
+
+.fl{
+    float:left;
+}
+
+.fr{
+    float:right;
+}
+
+.gradient{
+	background:-webkit-linear-gradient(top left,white,snow);
+}
+
+
+.triangle_up, .triangle_down_red, .triangle_down_gray{
+	position:absolute;
+	width:0;
+	height:0;
+	border-left:4px solid transparent;
+	border-right:4px solid transparent;
+}
+
+
+
+.triangle_up{
+	border-bottom:4px solid red;
+}
+
+.triangle_down_red{
+	border-top:4px solid red;
+}
+.triangle_down_gray{
+	border-top:4px solid gray;
+}
+.main_title {
+	position:relative;
+	font-size:15px;
+}
+
+
+.main_title strong{
+	color:red;
+}
+.main_title span{
+	margin-left:3px;
+}
+.main_title a img{
+	position:absolute;
+	top:9px;
+	right:5px;
+}
+/***********************************layout for the body*********************************/
+body{
+	margin-bottom:30px;
+}
+
+/************************************************************************************/
+#header, #nav,.content{
+	width:960px;
+	margin:0 auto;
+}
+
+.section,.main_ad,.side_section,.side_ad{
+	margin-bottom:10px;
+}
+/************************************detail for header***************************************************************/
+#header{
+	height:30px;
+	border-radius:6px;
+	background:snow;
+	
+}
+
+#header .city{
+	float:left;
+	line-height:30px;
+	padding-left:20px;
+	padding:5px;
+	font-size:12px;
+
+}
+
+#header .city a{
+	border:1px solid gray;
+	border-radius:2px;
+	box-shadow:2px 5px 8px 0 gray;
+	display:inline-block;
+	height:16px;
+	line-height: 20px;
+	padding:0 9px;
+	background:white;
+}
+
+#header .city a:hover{
+	background:pink;
+}
+
+#header .city .active{
+	color:green;
+}
+
+#header .link{
+	float:right;
+	line-height: 30px;
+	padding-right:20px;
+	color:black;
+
+}
+
+#header .link a{
+	color:black;
+	background:url(../img/header_link_bg.gif) no-repeat;
+	padding-left:20px;
+}
+
+#header .link a:hover{
+	text-decoration:underline;
+}
+
+#header .link .ico1{
+	background-position:2px 2px;
+}
+#header .link .ico2{
+	background-position:0 -29px;
+}
+/********************detai----------------------of-----------------------nav****************************************************************8*/
+#nav{
+	height:100px;
+	background:snow;
+	position:relative;
+}
+#nav ul{
+	position:absolute;
+	top:10px;
+}
+
+#nav li{
+	float:left;
+	padding:5px;
+}
+
+#nav li a{
+	display:inline-block;
+	width:61px;
+	
+	font-size:10px;
+	padding-top:50px;
+	text-align:center;
+	background:url(../img/nav_bg.png) no-repeat;
+	color:black;
+
+}
+
+
+#nav li a:hover{
+	text-decoration:underline;
+}
+
+#nav .bg1{background-position:0 0;}
+#nav .bg2{background-position:-66px 0;}
+#nav .bg3{background-position:-132px 0;}
+#nav .bg4{background-position:-198px 0;}
+#nav .bg5{background-position:-264px 0;}
+#nav .bg6{background-position:-330px 0;}
+#nav .bg7{background-position:-396px 0;}
+#nav .bg8{background-position:-462px 0;}
+#nav .bg9{background-position:-528px 0;}
+#nav .bg10{background-position:-594px 0;}
+
+#nav .bg1:hover{background-position:0 -70px;}
+#nav .bg2:hover{background-position:-66px -70px;}
+#nav .bg3:hover{background-position:-132px -70px;}
+#nav .bg4:hover{background-position:-198px -70px;}
+#nav .bg5:hover{background-position:-264px -70px;}
+#nav .bg6:hover{background-position:-330px -70px;}
+#nav .bg7:hover{background-position:-396px -70px;}
+#nav .bg8:hover{background-position:-462px -70px;}
+#nav .bg9:hover{background-position:-528px -70px;}
+#nav .bg10:hover{background-position:-594px -70px;}
+
+#nav h1{
+	width:223px;
+	height:62px;
+	margin:0 auto;
+	position:relative;
+	top:10px;
+}
+#nav .nav_1{
+	left:13px;
+}
+#nav .nav_2{
+	right:13px;
+}
+/***************************************detail for search****************************************************8*/
+
+
+
+#search{
+	width:958px;
+	height:114px;
+	margin:0 auto 10px;
+	border-radius:6px;
+	background:orange;
+	position:relative;
+	z-index:1;
+}
+
+#search .bar{
+	width:956px;
+	height:64px;
+	position:absolute;
+	top:22px;
+	left:-1px;
+	border-radius:5px;
+	border:1px solid gray;
+	background:red;
+	box-shadow:2px 2px 2px gray; /*the first arg is right second is bottom third is the scope*/
+}
+
+#search .menu{
+	position:absolute;
+	left:226px;
+	top:-26px;
+}
+
+#search .menu li{
+	float:left;
+	width:78px;
+	height:25px;
+	display:inline-block;
+	border:1px solid gray;
+	border-bottom:none;
+	margin-right:2px;
+	border-radius:5px 5px 0 0;
+	text-align:center;
+	line-height:25px;
+	font-size:14px;
+	cursor:pointer;
+
+}
+
+#search .menu .active{
+	height:25px;
+	background:red;
+	color:white;
+	font-weight:bold;
+
+}
+
+#search .img{
+	width:163px;
+	height:122px;
+	background:url(../img/search_img.png)no-repeat;
+	position:absolute;
+	left:14px;
+	top:-3px;
+	z-index:2;
+}
+
+#search .form{
+	position:absolute;
+	z-index:3;
+	left:226px;
+	top:36px;
+
+}
+#search .form .text{
+	width:380px;
+	height:22px;
+	padding:0 12px;
+	background:white;
+	border-radius:6px;
+	box-shadow:inset 2px 2px 2px pink;
+	color:pink;
+}
+#search .form .btn{
+	width:63px;
+	height:26px;
+	background:url(../img/search_img.png)no-repeat -163px 0;
+	float:right;
+	margin-left:10px;
+	border:none;
+}
+
+#search .keyword{
+	position:absolute;
+	width:206px;
+	line-height:18px;
+	top:30px;
+	right:36px;
+	font-size:15px;
+	color:white;
+
+}
+
+#search .keyword a{
+	color:white;
+}
+#search .keyword a:hover{
+	color:green;
+	text-decoration:underline;
+}
+#search .update{
+	width:405px;
+	height:30px;
+	position:absolute;
+	left:226px;
+	bottom:0;
+	background:url(../img/search_img.png)no-repeat -226px 8px;
+}
+
+
+#search .wrap{
+	width:336px;
+	height:30px;
+	overflow:hidden;
+	position:relative;
+	left:60px;
+
+}
+#search .update ul{
+	width:336px;
+	position:absolute;
+	top:0;
+	right:0;
+}
+
+#search .update li{
+	height:30px;
+	line-height:30px;
+}
+#search .update a{
+	color:black;
+	font-size:12px;
+}
+
+#search strong{
+	color:red;
+	font-weight:normal;
+}
+#search span{
+	color:gray;
+}
+#search .triangle_up{
+	top:8px;
+	right:0px;
+
+}
+#search .triangle_down_red{
+	top:17px;
+	right:0px;
+}
+/******************************detail_______ for content**********************************************************/
+.content{
+	
+}
+
+.main{
+	width:710px;
+}
+
+.section{
+	width:318px;
+	border:1px solid gray;
+	border-radius:6px;
+	padding:0 10px;
+}
+
+.video_title{
+	height:42px;
+	line-height:42px;
+	background:url(../img/video_bg.gif)no-repeat 105px 10px;
+	font-size:18px;
+	font-weight:normal;
+	color:red;
+	font-family:"微软雅黑";
+}
+
+.video{
+	margin-bottom:14px;
+}
+
+.video_list{
+	padding-left:75px;
+	height:78px;
+	background:url(../img/video_bg.gif)no-repeat 3px -47px;
+}
+.video_list li{
+	line-height:20px;
+	text-indent:14px;
+	background:url(dot.gif)no-repeat 5px center;
+}
+
+.video_list a{
+	color:black;
+	font-size:12px;
+}
+
+.video_list a:hover{
+	text-decoration:underline;
+}
+/*********************************************************************/
+.options{
+	width:338px;
+	height:200px;
+	background:snow;
+}
+
+
+.options .tab{
+	height:34px;
+	line-height: 34px;
+
+}
+
+.options .tab li{
+	width:167px;
+	height:33px;
+	line-height:33px;
+	border:1px solid gray;
+	border-bottom:none;
+	border-radius:6px 6px 0 0;
+}
+.options .tab .active{
+	background:snow;
+}
+
+.options .con{
+	width:336px;
+	height:166px;
+	border:1px solid black;
+	border-radius:0 0 6px 6px;
+	border-top:none;
+}
+
+.tab li{
+	text-align:center;
+	font-size:15px;
+	position:relative;
+}
+
+.tab strong{
+	color:red;
+}
+.tab span{
+	color:black;
+}
+
+.triangle_down_red, .triangle_down_gray{
+	position:absolute;
+	right:5px;
+	top:7px;
+}
+/**************************************************************************************/
+.main_ad{
+	border-radius:6px;
+	overflow:hidden;
+
+
+}
+
+
+.side{
+	width:250px;
+
+
+}
+
+.side_section{
+	border-radius:6px;
+	height:100px;
+	border:1px solid black;
+	padding:0 12px;
+	
+}
+.side_ad{
+	border-radius:6px;
+	overflow:hidden;
+}
+
+#footer{
+	width:958px;
+	height:78px;
+	background:green;
+	margin:0 auto;
+	border-radius:6px;
+}

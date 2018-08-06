@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>组件校检和非props值</title>
+	<script src="vue/vue.js"></script>
+</head>
+<body>
+	<div id="root">
+	<!-- 向子组件传值括号内的为表达式,采用:content="",如果不是js表达式,是字符串请 content="" 不使用v-bind-->
+		<child content="hello world"></child>
+	</div>
+	<script>
+		Vue.component("child", {
+			props: {
+				content: {
+					type: [String,Number],
+					required:false,
+					default: "default value",
+					//校验器
+					validator: function(value) {
+						return (value.length>100);
+					}
+				}
+			},  //组件的参数校验
+			template: "<div>{{content}}</div>"
+		})
+		var vm = new Vue({
+			el:"#root",
+		})
+	</script>
+</body>
+</html>

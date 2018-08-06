@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>组件的细节点</title>
+	<script src="vue/vue.js"></script>
+</head>
+<body>
+	<div id="root">
+	<!-- 在ul table ol select等中  最好使用原生子标签,然后使用is="组件名"进行渲染 防止出现bug -->
+		<!-- <table>
+			<tbody>
+				<tr is="row"></tr>
+				<tr is="row"></tr>
+				<tr is="row"></tr>
+			</tbody>
+		</table> -->
+
+
+		<div ref="hello" @click="handleClick">Hello, World! </div>
+	</div>
+	<script>
+
+		// Vue.component("row", {
+		// 	data: function() {
+		// 		return {
+		// 			content: "this is a row"
+		// 		}
+		// 	},  //在子组件中定义data 后面不能跟对象 ,只能定义为函数,且必须有返回值,且返回值为对象形式
+		// 	template: "<tr><td>{{content}}</td></tr>"  //组件要生效,在vue实例对象中必须进行挂载
+		// })
+
+
+
+
+		var vm =new Vue({
+			el: "#root",
+			data: {
+
+			},
+			methods: {
+				// handleClick: function() {
+				// 	alert("你好,劳伦斯先生");
+				handleClick: function() {
+					console.log(this.$refs.hello.innerHTML);  //$refs表示所有的引用.$refs.hello获取的是DOM元素
+					}
+				}
+		})  //可以看做是一个根组件
+	</script>
+</body>
+</html>

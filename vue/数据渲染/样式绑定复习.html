@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>样式绑定复习</title>
+	<script src="vue/vue.js"></script>
+	<style>
+		.style{
+			width:200px;
+			height:200px;
+			border-radius:5px ;
+			background:purple;
+			color:gold;
+			font-weight:bold;
+			font-size:30px;
+			text-align:center;
+			line-height:200px;
+			overflow:auto;
+		}
+	</style>
+</head>
+<body>
+	<div id="root">
+		<div :class="{style:isActivated}">你好劳伦斯先生</div>
+		<button @click="hanleClick"> 添加样式</button>
+	</div>
+	<script>
+		var vm = new Vue({
+			el: "#root",
+			data: {
+				isActivated: false
+			},
+			methods: {
+				hanleClick: function() {
+					this.isActivated=!this.isActivated;
+				}
+			}
+		})
+	</script>
+</body>
+</html>

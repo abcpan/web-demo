@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>同时使用过渡和动画</title>
+	<script src="vue/vue.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/animate.css" >
+</head>
+<body>
+	<div id="root">
+		<!-- 当一个标签被transition包裹时vue最自动帮我们构建一个动画流程 -->
+		<!-- before-enter 等是动画加载过程中会自动触发的事件,都会接受到el即元素的值 -->
+		<transition @before-enter="handleStyle1" 
+					@enter="handleStyle2"
+					@after-enter="handleAfterEnter"
+					enter-active-class="animated swing "
+					leave-active-class="animated shake">
+			<div v-show="show" >hello, world! </div>	
+		</transition>
+		<button @click="handlClick">显示/消失</button>
+	</div>
+	<script>
+		var vm = new Vue({
+			el: "#root",
+			data:{
+				show: true
+			},
+			methods: {
+				handlClick: function() {
+					// this.type = (this.type==true? false: true);
+					this.show =! this.show
+				},
+				handleStyle1: function(el) {
+					el.style.color="red";
+				},
+				handleStyle2: function(el,done) {
+					setTimeout(()=>{
+						el.style.color="purple";
+						el.style.fontSize="30px";
+						
+					},2000);  // 等待加载完成后延迟2s执行
+
+					setTimeout(()=>{
+						done();  //必须调用回调函数,表示动画结束
+					},4000)
+				},
+
+				handleAfterEnter: function(el) {
+					el.style.color="orange";
+				}
+			}
+		})
+	</script>
+</body>
+</html>

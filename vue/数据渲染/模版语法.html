@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue模版语法</title>
+	<script src="vue/vue.js"></script>
+</head>
+<body>
+	<div id="root">
+	<!-- v-text是绑定innertext -->
+	 	<div v-text="message +'lee'"></div>   <!--v开头的指令后的引号里面的内容不再是字符串,而是js中的表达式-->
+	 	<!-- 插值表达式 -->
+		<!-- {{message}}  -->
+
+		<div v-html="message"></div>
+
+	</div>
+	
+	<script>
+		var vm = new Vue({
+			el: "#root",  //挂载点
+			data: {
+				message: "<h1>dell</h1>"
+			}
+		})
+	</script>
+</body>
+</html>

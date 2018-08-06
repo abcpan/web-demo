@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>前端组件化1</title>
+	<script src="vue/vue.js"></script>
+</head>
+<body>
+	<div id="root">
+		<div id="app">
+			<input type="text" v-model="inputValue">
+			<!-- v-on:click可以简写为@click -->
+			<button @click="handleBtn">提交</button>   
+		</div>
+		<ul>
+		<!-- v-bind: 简写为: -->
+			<todo-item v-for="item in list" 
+						v-bind:content="item" 
+						@delete="handleItemDelete">     
+				<!-- 监听子组件的delete事件 -->
+			</todo-item>
+		</ul>
+	</div>
+	<script>
+		var TodoItem={   //全局组件
+			props:["content"],
+			template:"<li @click='handleItemClick'>{{content}}</li>",
+			methods:{
+				handleItemClick:function(){
+					this.$emit("delete");  //发射delete事件
+				}
+			}
+		}
+
+		var app=new Vue({
+			el:"#root",
+			data:{
+				list:[],
+				inputValue:""
+			},
+			components:{
+				TodoItem:TodoItem   //注册子组件
+			},
+			methods:{
+				handleBtn:function(){
+					this.list.push(this.inputValue);
+					this.inputValue="";
+				},
+				handleItemDelete:function(){
+					alert("你试图删除这个选项");
+				}
+			}
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数作为返回值</title>
+</head>
+<body>
+	<script>
+		function GetFunc(type){
+			console.log("这是返回的函数");
+			return function(obj){
+				return Object.prototype.toString.call(obj)== type;
+			};
+		}
+
+		var f=GetFunc(["s","s","s"]);
+		var result = f(["ab","aa"]);
+
+		console.log(result);
+	</script>
+</body>
+</html>

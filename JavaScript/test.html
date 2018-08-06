@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>实例对象</title>
+</head>
+
+<body>
+	<div>
+		<img src="" alt="">
+	</div>
+	<script>
+		function Person(name, age, sex) {
+			this.name = name;
+			this.age = age;
+			this.sex = sex;
+		}
+
+		var per = new Person("pan", 13, "男");
+		console.log(per["name"]);    //调用实例对象的属性可以采取python中字典的方式,不过要加上""
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue实例</title>
+	<script src="vue/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<div v-on:click="handleBtn">{{message}}</div>
+		<item></item>
+	</div>
+
+	<script>
+
+	//创建全局子组件
+		Vue.component('item',{
+			template: '<li>hello,item!!</li>'
+		})   //所创建的子组件必须在vue的实例监管范围内
+
+		var vm =new Vue({
+			el: '#app',
+			data: {
+				message:'hello, world'
+			},
+			methods: {
+				handleBtn:function(){
+					alert("你好,Lawrence先生")
+				}
+			}
+		})
+
+		//调用vue实例对象的属性和方法 必须采用如vm.$data.message的方式
+	</script>
+</body>
+</html>

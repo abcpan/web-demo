@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>非父子组件的传值(Bus/总线/观察者模式/发布订阅模式)</title>
+	<script src="vue/vue.js"></script>
+</head>
+<body>
+	<div id="root">
+		<child content="Dell" @click.native="handleChange"></child>
+		<child ref="le" content="Lee"></child>
+	</div>
+	<script>
+
+		Vue.prototype.bus = new Vue({
+
+		})
+
+		Vue.component("child",{
+			props: {
+				content: {
+					type: String,
+				}
+			},
+			template: "<div>{{content}}</div>",  //组件中要取得的其中的内容使用innerText无效  使用content即可
+		})
+
+
+		var vm = new Vue({
+			el: "#root",
+			data: {
+
+			},
+			methods: {
+				handleChange: function() {
+				}
+			}
+		})
+	</script>
+</body>
+</html>
