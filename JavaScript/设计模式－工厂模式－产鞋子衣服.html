@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>工厂模式</title>
+</head>
+<body>
+	<script>
+	var factory = {};
+	factory.chanxie = function() {
+		console.log("我生产鞋子");
+	}
+
+	factory.chanyifu = function() {
+		console.log("我生产衣服");
+	}
+
+	factory.chankuzi = function() {
+		console.log("我制作鞋子");
+	}
+
+	factory.changzhang = function(pra) {
+		return factory[pra];
+	}
+
+	var zuofang = factory;
+	var yewu =zuofang.changzhang("chanxie");
+	yewu();
+</script>
+	 
+
+</body>
+</html>

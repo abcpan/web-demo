@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>循环语句</title>
+</head>
+<body>
+	<button id="btn">开始循环</button>
+	<script>
+		var list = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16];
+		var btn  = document.getElementById("btn");
+		btn.onclick = function() {
+			for (var i in list) {
+				console.log(list[i])
+			}
+		}
+
+		var i=0;
+		while(i<10) {
+			document.write("<<<" + i);
+			i++;
+		}
+	</script>
+</body>
+</html>

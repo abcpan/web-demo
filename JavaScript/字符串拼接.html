@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>字符串拼接</title>
+</head>
+<body>
+	<div id="div">ss</div>
+	<div id="div">ss</div>
+	<div id="div">ss</div>
+	<div id="div">ss</div>
+	<button id="btn">计算</button>
+	<script>
+		// var div = document.getElementById("div");
+		// var btn = document.getElementById("btn");
+		// btn.onclick=function() {
+		// 	var i ="5";
+		// 	var j= 5;
+		// 	div.innerHTML = i + j;
+
+		// }
+
+		document.getElementById("btn").onclick=function() {
+			var j ="5";
+			var i =5;   //任何数据类型和字符串相加都将会被转为字符串与其进行拼接
+			var m = j+ i;
+			var tags = document.getElementsByTagName("div");
+			for (var i in tags) {
+				tags[i].innerHTML= m;
+			}
+		}
+	</script>
+</body>
+</html>

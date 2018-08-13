@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ajax</title>
+</head>
+<body>
+	<button onclick="do_ajax()">获取我喜欢的cd</button>
+	<div id="cd"></div>
+	<script>
+		function do_ajax() {
+			var xmlhttp;
+			if(window.XMLHttpRequest) {
+				xmlhttp = new XMLHttpRequest();
+			}else if{
+				xmlhttp =new ActiveXObject("Microsoft.XMLHTTP");
+			}else{
+				alert("您的浏览器不支持ajax");
+				return;
+			}
+			xmlhttp.open("POST","cd_catalog", true)
+			xmlhttp.onreadystatechange =function() {
+				if(this.readyState ==4 && this.status ==200) {
+					loadXMLDoc(this);
+				} 
+			}
+			xmlhttp.send();
+		}
+
+		function loadXMLDoc(xmlhttp) {
+			var xmlDoc = xmlhttp.responseXML;   //如果是文本就用responseText
+			var x = xmlDoc.getElementsByTagName("CD");
+			var div = document.getElementById('cd')
+			for(var i in x) {
+				var txt =x[i].childNodes[0].innerText;
+				var ele = "<div>" + txt+ "</div>"
+				div.appendChild(ele);
+			}
+
+
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>操作dom</title>
+	<style>
+		#div1 {
+			width: 200px;
+			height: 200px;
+			background-color:purple;
+			border:2px solid green;
+			float: left;
+			margin: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div id="root">
+			<p id="pid">这是要删除的元素</p>
+			<div id="div1" title="这是一个div的title" >这是一个美好的明天</div>
+			<button onclick="getAttr()">获取属性值</button>
+			<button onclick="setAttr()">设置属性</button>
+			<button onclick="getNode()">得到子节点的内容</button>
+			<button id="button" onclick="getParentNode()">获取父节点的id</button>
+			<button onclick="addNode()">添加一个节点</button>
+			<button onclick="removeNode()">删除一个节点</button>
+			<button onclick="getSize()">获取大小</button>
+	</div>
+		<script>
+			// 得到某个属性值
+			function getAttr() {
+				var title = document.getElementById("div1").getAttribute("title");
+				alert(title);
+			}
+			 // 设置某个属性的值
+			function setAttr() {
+				var tag=document.getElementById("div1");
+				tag.setAttribute("title", "300px");
+				alert("已经设置好的title属性是:" + tag.getAttribute("title"));
+			}
+
+			function getNode() {
+				var tag = document.getElementById("root");
+				var txt = tag.childNodes.innerText;  // 获取子节点元素的内容 选取1 是因为第一个子节点是空白 \ 子节点childNode使用类似于属性
+				alert(txt);
+			}
+
+			function getParentNode() {
+				var tag = document.getElementById('button').parentNode;  // 获取父节点或者子节点 必须以一个节点为基石
+				alert(tag.getAttribute("id"))
+			}
+
+			// 添加一个节点
+			function addNode() {
+				var pNode = document.getElementById("root");
+				var input = document.createElement("input");    // createElememt() 和getElement 系列 是document的方法,使用时必须加上document
+				input.value="你好, 老鲁斯先生";
+				pNode.appendChild(input);   // 添加一个节点
+			}
+
+			// 删除元素
+			function removeNode() {
+				try {
+						var dtag = document.getElementById("pid");
+						var tag  = document.getElementById("root");
+						tag.removeChild(dtag);
+					}catch(err) {
+						console.log("have no node")
+					}
+			}
+
+			function getSize() {
+				var width = document.documentElement.offsetWidth;   //　整个文档的宽
+				var height = document.documentElement.offsetHeight;
+				alert(width + ":" + height);
+			}
+		</script>
+	</div>
+</body>
+</html>

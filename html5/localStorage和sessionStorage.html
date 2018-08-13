@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>记录打开页面的次数</title>
+	<style>
+		.div{
+			width: 500px;
+			height:30px;
+			background:pink;
+		}
+	</style>
+</head>
+<body>
+	<label >打开页面的次数为:</label>
+	<div class="div" id="div1"></div>
+
+	<button id="btn" onclick="handleClick()">按钮点击次数</button>
+	<div class="div" id="div2"></div>
+	<script>
+		// 测试页面打开的次数
+		var tag = document.getElementById("div1");
+		if(localStorage.pageCount){   // localStorage会存储上次的值
+			localStorage.pageCount= Number(localStorage.pageCount) +1  // Number() 函数把对象的值转换为数字。
+		}else {
+			localStorage.pageCount = 1;
+		}
+
+		tag.innerHTML=localStorage.pageCount;
+
+
+
+		function handleClick() {
+			var tag = document.getElementById("div2");
+			if(sessionStorage.pageCount) {
+					sessionStorage.pageCount = Number(sessionStorage.pageCount) + 1;  
+			}else{
+				sessionStorage.pageCount =1; // 关闭窗口后 其存储的值就会消失,重新打开窗口后点击就执行此语句
+			}
+			tag.innerHTML=sessionStorage.pageCount;
+		}
+	</script>
+</body>
+</html>

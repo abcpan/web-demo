@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>date日期对象</title>
+	<style>
+		#div {
+			width: 200px;
+			height:200px;
+			background:pink;
+			display:flex;
+			flex-direction:column;
+			justify-content: center;
+			text-align:center;
+			margin:auto auto;
+		}
+	</style>
+</head>
+<body>
+		<div id="div" "></div>
+		<button style="margin:0 auto" onclick="startTime()">按钮</button>
+		<script>
+			// var date = new Date();
+			// // alert(date);  // 弹出当前时间
+			// console.log(date.getFullYear());  // 获取年份
+			// console.log(date.getTime()); // 获取毫秒
+			// console.log(date.getDay()); // 获取星期日  其他依次类推 getHours  getMinutes getSeconds
+
+			// 时钟操作
+
+
+			function startTime() {
+				var date = new Date();
+				var tag = document.getElementById("div");
+				var h = date.getHours();
+				var m = date.getMinutes();
+				var s = date.getSeconds();
+				h = checkTime(h);
+				m = checkTime(m);
+				s = checkTime(s);
+				tag.innerHTML = h + ":" +m + ":" + s;
+				setTimeout(() => {
+					startTime();
+				},1000)
+			}
+
+			function checkTime(i) {
+				if(i<10) {
+					i = "0" + i;
+				}
+
+				return i;
+			}
+		</script>
+</body>
+</html>

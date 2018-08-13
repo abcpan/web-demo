@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>盒子模型</title>
+	<style>
+		.div{
+			/*z-index:1;*/
+			width:200px;
+			height:200px;
+			background: blue;
+			border:20px solid ;
+			display:flex;
+			flex-direction:column;
+			vertical-align: center;
+			/*justify-content:center;*/
+			
+		}
+		.div-son{
+			/*z-index:2;  
+			width:400px;
+			height:220px;
+			background:yellow;*/
+			width:30px;
+			height:30px;
+			background:red;
+			border:2px solid green;
+			margin: 0 auto;
+
+		}
+		.triangle {
+			width:0;
+			height:0;
+			border-left:100px solid transparent;
+			border-right:100px solid transparent;
+			border-bottom:100px solid red;
+		}
+	</style>
+</head>
+<body>
+		<div class="div">
+				<div class="div-son"></div>
+				<div class="div-son"></div>
+				<div class="div-son"></div>
+				<div class="div-son"></div>
+		</div>
+
+
+		<div class="triangle"></div>
+</body>
+</html>

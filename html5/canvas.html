@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas</title>
+	<style>
+		#canvas{
+			width: 300px;
+			height:300px;
+			border:1px solid green;
+		}
+		#canvas1{
+			margin-top:2px;
+			width:500;
+			height:350;
+			border:1px solid green;
+		}
+
+		#myCanvas{
+			margin-top:2px;
+			width:200;
+			height:100;
+			border:1px solid green;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="canvas"></canvas>
+	<canvas id="canvas1"></canvas>
+	<canvas id="myCanvas"></canvas>
+	<script>
+		/*************************绘制矩形 以填充模式**********************/
+		var canvas = document.getElementById('canvas');
+		var cxt = canvas.getContext("2d"); // 创建canvas对象    getContext() 方法返回一个用于在画布上绘图的环境。
+		cxt.fillStyle="red"  // 颜色绘制成red
+		cxt.fillRect(0,0,175,50);  // 绘制成举行  开始位置为左上角(0,0) 宽175,高50
+
+
+		/**************************绘制矩形 以线条模式***************************/
+		var canvas = document.getElementById('canvas');
+		var cxt = canvas.getContext("2d");
+		cxt.moveTo(175,50);
+		cxt.lineTo(275,50);
+		cxt.lineTo(275,100);  // 所有数字为坐标,原点在左上角
+		cxt.lineTo(175,100);
+		cxt.lineTo(175,50);
+		cxt.stroke();  // 绘画终止
+
+		/***************画一个绿色的圆形****************/
+		var canvas = document.getElementById('canvas1');   // 画布比例为2:1  设置时必须等比例设置  否则圆会变成椭圆
+		var cxt = canvas.getContext("2d");
+		for(var i=0;i<10;i++){
+			cxt.beginPath();   // 开始路径路径
+			cxt.arc(i*25,i*25,i*10,0,Math.PI*2,true);
+			cxt.closePath();  //  关闭路径
+			cxt.fillStyle="rgba(255,0,0,0.25)";  // 填充为绿色
+			cxt.fill(); // 绘制图形
+		}
+
+
+		/*******************画一个图片****************/
+		var c=document.getElementById("myCanvas");
+		var cxt=c.getContext("2d");
+		var img=new Image()
+		img.src="flower.png";
+		img.onload = function(){
+			cxt.drawImage(img,0,0);    // 图片加载完后才能进行绘图
+		}
+		
+
+
+	</script>
+</body>
+</html>

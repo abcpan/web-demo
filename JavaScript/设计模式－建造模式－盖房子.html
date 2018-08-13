@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>建造模式</title>
+</head>
+<body>
+	<script>
+		function Fangzi() {
+			this.keting ="";
+			this.chufang ="";
+			this.woshi = "";
+		}
+
+
+		function Baogongtou() {
+			this.gaifangzi = function(gongren) {
+				gongren.gaiketing();
+				gongren.gaichufang();
+				gongren.gaiwoshi();
+			}
+		}
+
+		function Gongren () {
+			this.gaiketing =function() {
+				console.log("finished keting");
+			};
+			this.gaichufang = function() {
+				console.log("finished chufang");
+			};
+			this.gaiwoshi = function() {
+				console.log("finished woshi");
+			};
+			this.jiaogong = function() {
+				var fangzi = new Fangzi();
+				fangzi.keting = "ok";
+				fangzi.woshi = "ok";
+				fangzi.chufang = "ok";
+				return fangzi
+			}
+		}
+
+
+		var gongren = new Gongren();
+		var baogongtou = new Baogongtou();
+		baogongtou.gaifangzi(gongren);
+
+		var fangzi = gongren.jiaogong();
+		console.log(fangzi);
+	</script>
+</body>
+</html>

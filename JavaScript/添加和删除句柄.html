@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>添加和删除句柄</title>
+</head>
+<body>
+	<button id="btn">按钮</button>
+	<script>
+		var btn = document.getElementById("btn");
+		btn.addEventListener("click", handleHello);
+		btn.addEventListener("click", handleWorld);   // 在使用添加句柄时  事件不带on
+		btn.removeEventListener("click", handleHello);
+
+		function handleHello() {
+			alert("hello");
+		}
+
+		function handleWorld() {
+			alert("world");
+		}
+	</script>
+</body>
+</html>

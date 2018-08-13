@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>异常捕获</title>
+</head>
+<body>
+	<form action="">
+		<input id="txt" type="text" >
+		<input id="btn" type="button" value="按钮" onclick="handleClick()">
+	</form>
+	<script>
+		function handleClick() {
+			try{
+				var val = document.getElementById("txt").value;
+				if(val == ""){
+					throw "您输入的值为空值";  // 抛出的错误信息
+				}
+			}catch(err){
+				console.log(err);  // 打印无错误信息
+			}
+			
+		}
+	</script>
+</body>
+</html>

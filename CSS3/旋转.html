@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>旋转</title>
+	<style>
+	.wrap{
+		width:300px;
+		height:300px;
+		border:1px solid green;
+		text-align:center;
+		float:left;
+	}
+		.style {
+			width:100px;
+			height:100px;
+			background:purple;
+			color:orange;
+			font-weight: bold;
+		}
+		.rotate {
+			transform:rotate(45deg);  /*顺时针旋转45度*/
+		}
+		.translate {
+				transform: translate(20px ,50px);
+		}
+		.scale{
+			transform: scale(1,2) translate(100px,20px);  /*scale 第一参数为宽的倍数,第二个为高的倍数  tanslate 第一个参数为从原位置左侧水平平移  第二个为垂直平移*/
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<p>旋转</p>
+		<div class="style">这是一个美好的世界</div>
+		<div class="style rotate">这是一个美好的未来</div>
+	</div>
+
+	<div class="wrap">
+		<p>移动</p>
+		<div class="style">这是一个美好的世界</div>
+		<div class="style translate">这是一个美好的未来</div>
+	</div>
+
+	<div class="wrap">
+		<p>变化大小</p>
+		<div class="style">这是一个美好的世界</div>
+		<div class="style scale">这是一个美好的未来</div>
+
+
+		<!-- 
+
+
+				matrix() 方法
+
+matrix() 方法把所有 2D 转换方法组合在一起。
+
+matrix() 方法需要六个参数，包含数学函数，允许您：旋转、缩放、移动以及倾斜元素。
+		 -->
+	</div>
+</body>
+</html>

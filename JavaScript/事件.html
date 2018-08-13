@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件</title>
+	<style>
+		#demo{
+			width: 200px;
+			height: 200px;
+			background:green;
+		}
+	</style>
+</head>
+<body>
+	<!-- 鼠标移开和鼠标经过事件 -->
+	<div id="demo" onmouseout="handleOut(this)" onmouseover="handleOver(this)"></div>
+	<form>
+		<input type="text" onchange="handleChange(this)" onfocus="handleFocus(this)" onblur="handleBlur(this)" onselect="handleSelect(this)">
+	</form>
+	<script>
+		function handleOut(obj) {   // obj是事件的标签, 不能使用this作为形参,this是
+			obj.innerHTML = "潘桂成";
+		}
+
+		function handleOver(obj) {
+			obj.innerHTML = "hello, world";
+		}
+
+		function handleChange(obj) {
+			alert("内容发生改变");
+		} 
+
+		function handleFocus(obj) {
+			obj.style.background="red"
+		}
+		
+		function handleBlur(obj) {
+			obj.style.background="yellow";
+		}
+
+		function handleSelect(obj) {
+			obj.innerHTML.style.background="green";
+		}
+	</script>
+</body>
+</html>

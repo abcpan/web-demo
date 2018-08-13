@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>跳转语句</title>
+</head>
+<body>
+	<script>
+	for(var i=0;i<10;i++){
+		if(i==5){
+			continue;
+		}
+		document.write("i=" + i + "<br/>");   // 打印后没有5这个选项,因为在等于5时  回去再进行的循环
+	}
+	</script>
+</body>
+</html>

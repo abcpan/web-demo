@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>视频播放控制</title>
+	<style>
+		button {
+			color:#fff;
+			margin-left: 10px;
+			display:inline-block;
+			background:-webkit-linear-gradient(top left,red,yellow);
+			background:-moz-linear-gradient(top left,red,yellow);
+		}
+		video {
+			margin-top: 10px;
+			border-radius: 5px;
+		}
+	</style>
+</head>
+<body>
+	<div background="pink">
+	　<button onclick="playPause()">播放/暂停</button>
+	　<button onclick="makeBig()">变大</button>
+	　<button onclick="makeSmall()">变小</button>
+	　<button onclick="makeNormal()">正常</button>
+	</div>
+	<!-- loop为循环播放 -->
+	<video id="video" src="mov_bbb.mp4" ></video>
+	<script>
+		var myvideo = document.getElementById('video');
+		function playPause() {
+			if(myvideo.paused) {
+				myvideo.play();
+			}else{
+				myvideo.pause();
+			}
+		}
+
+		function makeBig() {
+			myvideo.width=600;
+		}
+
+		function makeSmall() {
+			myvideo.width=300;
+		}
+
+		function makeNormal() {
+			myvideo.width=420;
+		}
+	</script>
+</body>
+</html>

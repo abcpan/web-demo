@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>拖动</title>
+	<style>
+		#box {
+			height: 200px;
+			width: 200px;
+			border:1px solid black;
+			margin:0 auto;
+			display:flex;
+			flex-direction:column;
+			justify-content: center;
+
+		}
+		#img{
+			display:block;
+			margin: 0 auto;
+		}
+	</style>
+</head>
+<body>
+	<div id="box" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+	<div id="box" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+	<img id="img" src="./drag.gif" draggble="true" ondragstart="drag(event)">
+	<script>
+		function drag(ev) {
+			ev.dataTransfer.setData("pan",ev.target.id);  // 将ev.target.id  转化成"pan"
+		}
+
+		function allowDrop(ev) {   // ondragover 事件规定在何处放置被拖动的数据。默认不允许放置,此处阻止默认处理方式
+			ev.preventDefault();
+
+		}
+
+		function drop(ev) {
+			ev.preventDefault();   // drop事件默认将放置的元素以链接的形式打开
+			var data = ev.dataTransfer.getData("pan");
+			ev.target.appendChild(document.getElementById(data));
+		}
+
+
+		/*
+		总结  开始拖动事件 ondragstart
+				 拖动结束事件: ondragover  
+
+		*/
+	</script>
+</body>
+</html>
