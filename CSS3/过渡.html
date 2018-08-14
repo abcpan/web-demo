@@ -8,34 +8,35 @@
 			width:100px;
 			height:100px;
 			background: green;
-			-webkit-transition:width 2s,background 5s;
-			-moz-transition:width 2s,background 5s;
-			-ms-transition:width 2s,background 5s;
 		}
 		.div:hover {
 			width:300px;
 			background:-webkit-linear-gradient(top left,red,yellow);
+			-webkit-transition:width 2s,background 5s;
+			-moz-transition:width 2s,background 5s;
+			-ms-transition:width 2s,background 5s;
 		}
 		.div2{
 			width:50px;
 			height:50px;
 			font-size:8px;
 			background:red;
-			transition:width 2s,height 2s, transform 2s; /*过渡经过的时间* transiton要写在选择器中/ 
+			
 
 			/*  以下是更为详细的
 					transiton-property:width, height;  // 需要过渡的属性
 					transition-duratin:2s;
-					transition-delay:2s;  //延迟时间
-				*/
+					transition-delay:2s;  //延迟时间*/
 
-		}
+			}
+
 		.div2:hover { 
 			width:200px;
 			height:200px;
 			font-size:15px;
 			transform:rotate(180deg);
 			background:yellow;
+			transition:width 2s,height 2s, transform 2s;  /*过渡的属性值&&过渡经过的时间/ 
 		}
 	</style>
 </head>

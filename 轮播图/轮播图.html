@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>轮播图</title>
+	<link rel="stylesheet" href="common.css" type="text/css">
+</head>
+<body>
+	<div class="container">
+		<div class="wrap" style="left:0px">
+			<img src="./img/1.jpg" alt="">
+			<img src="./img/2.jpg" alt="">
+			<img src="./img/3.jpg" alt="">
+			<img src="./img/4.jpg" alt="">
+			<img src="./img/5.jpg" alt="">
+		</div>
+		<div class="buttons">
+			<span>1</span>
+			<span>2</span>
+			<span>3</span>
+			<span>4</span>
+			<span>5</span>
+		</div>
+		<a href="javascript:;" rel="external nofollow" class="arrow left"><</a>
+    <a href="javascript:;" rel="external nofollow" class="arrow right">></a>
+  </div>
+  <script>
+  	var wrap = document.querySelector(".wrap");
+  	var prev = document.querySelector(".left");
+  	var next = document.querySelector(".right");
+
+  	next.onclick = function () {
+  		next_pic();
+  	}
+
+  	prev.onclick =function () {
+  		prev_pic();
+  	}
+
+/*****************处理函数******************************************/
+
+		function next_pic() {
+			index++;
+			if(index > 4) {
+				index =0;
+			}
+			showCurrentDot();
+			var newLeft;
+			if(wrap.style.left=="-2400px"){
+				newLeft=0;
+			}else{
+				newLeft =parseInt( wrap.style.left)-600;
+			}
+			wrap.style.left=newLeft + "px";   //向左边移动
+		}
+
+  	function prev_pic() {
+  		//给小点着色
+  		index--;
+			if(index < 0) {
+				index =4;
+			}
+			showCurrentDot();
+  		var newLeft;
+  		if(wrap.style.left=="0px"){  // if函数 用来获取偏移量
+				newLeft=-2400;
+  		}else{
+  			newLeft =parseInt( wrap.style.left)+600;
+  		}
+  		wrap.style.left = newLeft + "px"; // 向右边边移动
+
+		}
+/***********************自动播放控制****************************************/
+	var container = document.querySelector(".container");
+	var timer = null;
+	function autoPlay() {
+		timer = setInterval(next_pic,3000);
+	}
+	autoPlay();
+	function stopPlay() {
+		clearInterval(timer);
+	}
+
+	container.onmouseleave = autoPlay;
+	container.onmouseenter = stopPlay;
+	/***************************************************************************888*/
+	var index = 0;
+	var dots= document.getElementsByTagName("span");
+	function showCurrentDot() {
+		for(var i=0;i<dots.length;i++){
+			dots[i].className ="";
+		}
+		dots[index].className="on";
+	}
+	showCurrentDot() // 默认给第一个dots着色
+  </script>
+</body>
+</html>

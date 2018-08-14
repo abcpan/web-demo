@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>动画</title>
 	<style>
+	/*构造动画*/
 		@keyframes myanimation{   /* 0% 是动画的开始 100% 是动画的完成,动画之间不加逗号,animation后面是跟的动画名称*/
 			0%  {height:150px;width:150px;}  
 			25% {height:200px;width:200px;}
@@ -29,11 +30,32 @@
 			100%{height:300px;width:300px;}
 		}
 
+		@keyframes rotate {
+			0% {height:100px;width:100px;background:red;transform:rotate(30deg);}
+			25% {height:150px;width:150px;background:green;transform:rotate(60deg);}
+			50% {height:200px;width:200px;background:blue;transform:rotate(80deg);}
+			100% {height:250px;width:250px;background:orange;transform:rotate(180deg);}
+		}
+
 		.wrapper {
 			overflow:hidden;
 			height:100px;
 			width:100px;
-			animation:myanimation 5s;
+			-o-animation:myanimation 5s; /*动画名 动画完成的时间*/
+			-webkit-animation:myanimation 5s;
+			-moz-animation:myanimation 5s;
+		}
+
+		.div2 {
+			width:100px;
+			height:100px;
+			border:1px solid green;
+			background: gold;
+			box-shadow:5px 5px 10px pink;
+			border-radius:5px;
+		}
+		.div2:hover {
+			animation:rotate 5s;
 		}
 	</style>
 </head>
@@ -41,5 +63,7 @@
 	<div class="wrapper">
 		<img  src="flower.jpg" >
 	</div>
+
+	<div class="div2"></div>
 </body>
 </html>
